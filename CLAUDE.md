@@ -61,6 +61,16 @@ update/<topic>    # Updates to existing docs
 refactor/<scope>  # Structural changes
 ```
 
+### Workflow Steps
+
+1. Create branch from `main`
+2. Make changes and commit
+3. Push branch to origin
+4. **Wait for user to validate changes**
+5. Create PR only when user explicitly requests it
+
+**Important:** Do NOT automatically create PRs. Always wait for user approval first.
+
 ### Commit Messages
 
 Use conventional commits:
