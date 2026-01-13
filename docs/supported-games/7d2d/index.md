@@ -1,10 +1,18 @@
 # 7 Days To Die
 
-## Install Allocs fixes
+## Install Allocs Fixes
 
-The new built-in 7 Days to Die API does not support all operations Takaro
-needs just yet. Takaro will switch to it once it's ready and drop support for
-the legacy Allocs Fixes API.
+Allocs Server Fixes is required for Takaro to connect to your 7 Days to Die server. See the [Allocs Server Fixes installation guide](./allocs.md) for complete setup instructions.
+
+## Checking Installed Mods
+
+To verify which mods are installed on your server, open your server console (via Telnet, web panel, or in-game F1 console) and type:
+
+```
+version
+```
+
+This will display version information for all installed mods, including Allocs Server Fixes if present.
 
 ## Setting Up Web API Credentials
 
@@ -43,34 +51,26 @@ This token is passed in the API requests to authenticate and authorize Takaro to
 Takaro uses Server-Sent Events (SSE) to receive real-time updates from the 7D2D server.
 This allows Takaro to be notified of changes and events occurring on the server without polling for information.
 
+## Troubleshooting
+
+### Mods Not Loading
+
+- Verify the folder structure is correct (no nested `Mods/Mods/` directories)
+- Ensure each mod folder contains both `ModInfo.xml` and the DLL file
+- Check server logs for any mod loading errors
+
+### Cannot Access Web Interface
+
+- Verify `WebDashboardEnabled` is set to `true` in `serverconfig.xml`
+- Check that the port specified in `WebDashboardPort` is open in your firewall
+- Ensure no other service is using the same port
+
+### API Not Responding
+
+- Confirm the server has fully restarted after installing the mods
+- Verify your web token has sufficient permissions (permission level 0 for full access)
+- Check the server output log for any API-related errors
+
 ## Migrating from CSMM
 
-### Export from CSMM
-
-1. Go to your CSMM server settings
-2. Scroll to **Experiments** section
-3. Click **Export** to download your JSON data
-
-### Import to Takaro
-
-1. In Takaro, go to **Game Servers**
-2. Click **Import from CSMM**
-3. Upload your CSMM export JSON
-4. Configure import options:
-
-| Option | Description |
-|--------|-------------|
-| **Import roles** | Include roles. If unchecked, players get default role |
-| **Import players** | Include player data |
-| **Transfer currency** | Assign CSMM currency to imported players |
-| **Import shop listings** | Import shop items from CSMM |
-
-5. Click **Import gameserver**
-
-### Limitations
-
-- Custom hooks, commands, and cronjobs are **not compatible**
-- No modules enabled by default - enable manually
-- Best-effort migration, not 1:1 mapping
-
-**Recommendation:** Only use if you have significant CSMM data. Otherwise, start fresh.
+Coming from CSMM? You can import your existing player data, roles, currency, and shop listings. See the [CSMM Migration Guide](./csmm-migration.md) for instructions.
