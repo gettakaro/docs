@@ -19,7 +19,7 @@ Takaro tracks the following data for each player:
 
 ## Getting Started
 
-1. Navigate to your Takaro dashboard
+1. Navigate to [tracker.takaro.io](https://tracker.takaro.io/)
 2. Select your game server from the dropdown
 3. Click **View Map** to load the map and player data
 
