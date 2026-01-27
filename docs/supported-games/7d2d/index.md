@@ -33,11 +33,32 @@ uppercase, as well as symbols.
 
 ## Finding Your Web API Port
 
-Finding your web API port is essential for connecting Takaro to your server. Here are two methods to find your port:
+Finding your web API port is essential for connecting Takaro to your server. Here are two methods to locate it:
 
-Via logs: Check the output log of your server during startup for a line similar to this: `2023-09-15T01:27:41 61.339 INF Started Webserver on 8082.`
+### Method 1: Check Server Startup Logs
 
-The number at the end is your port value.
+Look for a line like this in your server's output log during startup:
+
+```
+Started Webserver on 8082
+```
+
+The number at the end (e.g., `8082`) is your web API port.
+
+### Method 2: Check serverconfig.xml
+
+Look for these settings in your `serverconfig.xml` file:
+
+```xml
+<property name="WebDashboardEnabled" value="true"/>
+<property name="WebDashboardPort" value="8080"/>
+```
+
+The `WebDashboardPort` value is your web API port. The default is usually `8080` or `8082`.
+
+:::tip Hosted Servers
+If you're running on a hosted server (like Nitrado, GTX, etc.), the port is often shown in their control panel under "Web Interface" or "RCON/API" settings.
+:::
 
 ## How Takaro Connects to Your Server
 
