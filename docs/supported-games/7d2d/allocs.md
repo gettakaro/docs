@@ -8,11 +8,19 @@ Allocs Server Fixes is a collection of mod addons for 7 Days to Die that enables
 
 ## Prerequisites
 
-Before installing Allocs Server Fixes, ensure your server has these TFP (The Fun Pimps) mods installed. These typically come pre-installed with the server:
+Allocs Server Fixes depends on the official TFP (The Fun Pimps) mods to function. These mods provide the core web server and mapping functionality that Allocs extends.
+
+Your server must have these TFP mods installed:
 
 - TFP_CommandExtensions
 - TFP_MapRendering
 - TFP_WebServer
+
+These mods are included with standard 7 Days to Die dedicated server installations. If you're using a server host (like Nitrado, GTX, etc.), they should already be present.
+
+:::warning Missing TFP Mods?
+If these mods are not present on your server, contact your server host to verify you have the correct server installation. Self-hosted servers should ensure they're using the official dedicated server files from Steam.
+:::
 
 ## Installation
 
