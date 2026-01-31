@@ -1,4 +1,10 @@
+---
+image: /img/games/minecraft.png
+---
+
 # Minecraft
+
+![Minecraft](/img/games/minecraft.png)
 
 Takaro supports Minecraft servers through our generic connector and the Takaro Minecraft mod. This integration enables real-time player event streaming, server log forwarding, player management capabilities, and remote server control.
 
