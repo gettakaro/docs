@@ -60,6 +60,17 @@ The `WebDashboardPort` value is your web API port. The default is usually `8080`
 If you're running on a hosted server (like Nitrado, GTX, etc.), the port is often shown in their control panel under "Web Interface" or "RCON/API" settings.
 :::
 
+### Port Conflicts on Hosted Servers
+
+Many hosting providers (especially those using Pterodactyl) use port `8080` for their control panel, which conflicts with the default `WebDashboardPort`. If you can't access your web dashboard:
+
+1. Check your server logs for errors like `port already in use`
+2. Look at your allocated ports in your host's control panel
+3. Change `WebDashboardPort` in `serverconfig.xml` to an available allocated port (e.g., if you have ports 26903-26905 allocated, try `26904`)
+4. Restart your server and test access at `http://<your-ip>:<new-port>/`
+
+If no ports are available, contact your hosting provider to allocate an additional port for the web dashboard.
+
 ## How Takaro Connects to Your Server
 
 ### Authentication Mechanism
@@ -85,6 +96,7 @@ This allows Takaro to be notified of changes and events occurring on the server 
 - Verify `WebDashboardEnabled` is set to `true` in `serverconfig.xml`
 - Check that the port specified in `WebDashboardPort` is open in your firewall
 - Ensure no other service is using the same port
+- On hosted servers, the default port `8080` may conflict with the control panel - see [Port Conflicts on Hosted Servers](#port-conflicts-on-hosted-servers)
 
 ### API Not Responding
 

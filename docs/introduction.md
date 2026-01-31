@@ -54,7 +54,7 @@ You can enable [economy](./economy.md) for each game server. This allows you to 
 
 ## How to get started?
 
-Takaro is built to support communities of all sizes with powerful, scalable tools for managing game servers, players, and monetization. Check out the [Supported Games](./supported-games/Rust.md) section for step-by-step instructions on connecting your game servers.
+Takaro is built to support communities of all sizes with powerful, scalable tools for managing game servers, players, and monetization. Check out the [Supported Games](./supported-games/official/Rust.md) section for step-by-step instructions on connecting your game servers.
 
 ## Feature requests
 
