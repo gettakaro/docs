@@ -1,10 +1,4 @@
----
-image: /img/games/7d2d.jpg
----
-
 # 7 Days To Die
-
-![7 Days to Die](/img/games/7d2d.jpg)
 
 ## Install Allocs Fixes
 

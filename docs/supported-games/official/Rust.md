@@ -1,10 +1,4 @@
----
-image: /img/games/rust.jpg
----
-
 # Rust
-
-![Rust](/img/games/rust.jpg)
 
 Takaro connects to your server using the RCON protocol over websocket
 

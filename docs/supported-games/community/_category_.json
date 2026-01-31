@@ -2,7 +2,7 @@
   "label": "Community",
   "position": 2,
   "link": {
-    "type": "generated-index",
-    "description": "Games supported through community-maintained integrations. These connectors are developed and maintained by community members."
+    "type": "doc",
+    "id": "supported-games/community/index"
   }
 }
