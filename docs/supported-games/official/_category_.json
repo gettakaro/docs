@@ -1,0 +1,8 @@
+{
+  "label": "Official",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Games officially supported by the Takaro team with guaranteed compatibility and regular updates."
+  }
+}
