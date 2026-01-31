@@ -1,4 +1,10 @@
+---
+image: /img/games/hytale.png
+---
+
 # Hytale
+
+![Hytale](/img/games/hytale.png)
 
 Takaro connects to your Hytale server using the generic connector and the Hytale-Takaro Integration mod. This integration enables real-time player event streaming, player management capabilities, and remote server control.
 
