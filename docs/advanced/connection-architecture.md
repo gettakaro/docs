@@ -71,7 +71,7 @@ For the generic connector, the mod/plugin automatically attempts to reconnect. F
 
 ### Which connector does my game use?
 
-See the [Quick Reference](#quick-reference) table at the top of this page.
+7 Days to Die and Rust use [traditional connectors](#traditional-connectors-7-days-to-die-rust). Minecraft, Hytale, and newer integrations use the [generic connector](#generic-connector-minecraft-hytale-and-more).
 
 ## Further Reading
 
