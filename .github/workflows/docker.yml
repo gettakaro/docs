@@ -64,6 +64,5 @@ jobs:
             TAKARO_VERSION=${{ steps.meta.outputs.version }}
             TAKARO_COMMIT=${{ github.sha }}
             TAKARO_BUILD_DATE=${{ env.TIMESTAMP }}
-            TAKARO_REF=main
         env:
           SOURCE_DATE_EPOCH: ${{ env.TIMESTAMP }}

@@ -31,7 +31,7 @@ Permissions in CSMM are typically configured to require a role level lower than 
 Takaro, however, approaches roles differently:
 
 - In Takaro, roles do not have a 'level'. Instead, they are composed of 'permissions'.
-- These permissions determine what actions can be performed within the Takaro API. You can refer to the [Takaro API Documentation](https://docs.takaro.io/api-docs/enums/_takaro_apiclient.PERMISSIONS.html) for details on built-in permissions.
+- These permissions determine what actions can be performed within the Takaro API. You can refer to the [API documentation](/advanced/api) for details on built-in permissions.
 - Modules in Takaro can also define their own permissions. These permissions are automatically integrated into the roles.
 - An example of this can be seen on the role editing page in Takaro, where module-specific permissions are listed.
 
