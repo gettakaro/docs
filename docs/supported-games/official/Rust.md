@@ -33,4 +33,4 @@ If you are having trouble connecting to your Rust server, you may need to disabl
 
 ## How Takaro Connects to Your Rust Server
 
-Takaro connects to the Rust server using the RCON protocol using web protocols, which allows it to listen for events happening on the server and send commands and receive responses from the server.
+Takaro connects to the Rust server using the RCON protocol using web protocols, which allows it to listen for events happening on the server and send commands and receive responses from the server. For a high-level overview of how Takaro connects to game servers, see [Connection Architecture](/advanced/connection-architecture).

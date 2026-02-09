@@ -47,6 +47,12 @@ The idea is that 99% of users will never need to write a custom module. The buil
 
 We know there is stuff to be added to the built-in modules, and we are working on that. If you have any suggestions, please let us know on Discord!
 
+## Do I need to open firewall ports for Takaro?
+
+It depends on your game. For 7 Days to Die and Rust, Takaro connects to your server, so the relevant port must be accessible from the internet. For Minecraft, Hytale, and other games using the generic connector, your server connects outbound to Takaro — no port forwarding or inbound firewall rules are needed.
+
+See [How Takaro Connects to Your Game Server](./advanced/connection-architecture.md) for details.
+
 ## How do I enable Discord role synchronization?
 
 To sync Discord and Takaro roles:

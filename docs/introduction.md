@@ -27,7 +27,7 @@ Takaro allows you to build your own [Custom Modules](./advanced/modules.md) thro
 
 ## Game Support
 
-Takaro currently supports popular games like _Rust_ and _7 Days to Die_, with _Minecraft_ support coming soon. Our platform is designed to support more games in the future.
+Takaro currently supports _Rust_, _7 Days to Die_, and _Minecraft_, with community support for _Hytale_. Our platform is designed to support more games in the future.
 
 ## Unified Player Profile
 

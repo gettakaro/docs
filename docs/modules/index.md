@@ -24,4 +24,4 @@ You can install modules by navigating to a gameserver in the Takaro dashboard an
 
 ## Creating Custom Modules
 
-If you want to create your own modules, check out the [Development](/development/getting-started) section for guides on building custom functionality.
+If you want to create your own modules, check out the [Custom Modules](/advanced/custom-modules) guide.

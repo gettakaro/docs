@@ -73,6 +73,8 @@ If no ports are available, contact your hosting provider to allocate an addition
 
 ## How Takaro Connects to Your Server
 
+For a high-level overview of how Takaro connects to game servers, see [Connection Architecture](/advanced/connection-architecture).
+
 ### Authentication Mechanism
 
 When Takaro connects to your 7D2D server, it uses the web API credentials (token) you set up earlier for authentication.
