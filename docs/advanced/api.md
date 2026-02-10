@@ -4,13 +4,118 @@ sidebar_position: 4
 
 # API
 
-For a hands-on experience and quick start with the Takaro API, please visit the [interactive API documentation](https://api.takaro.io/api.html). This page allows you to explore the API's endpoints, make test requests, and view responses in real-time. It's a great resource for both learning and debugging.
+For a hands-on experience and quick start with the Takaro API, visit the [interactive API documentation](https://api.takaro.io/api.html). You can explore endpoints, make test requests, and view responses in real-time.
 
 ## Authentication
 
-If you are logged in to the Takaro dashboard, you can automatically use the endpoints on the [interactive API documentation](https://api.takaro.io/api.html).
+To use the API programmatically, authenticate by calling the login endpoint with your credentials. This returns a session token you can use for subsequent requests.
 
-If you dont have login credentials, ask your server administrator to create these.
+### Logging in
+
+Send a `POST` request to `/login` with your email and password:
+
+```sh
+curl -X POST https://api.takaro.io/login \
+  -H "Content-Type: application/json" \
+  -d '{"username": "your-email@example.com", "password": "your-password"}'
+```
+
+The response contains your session token:
+
+```json
+{
+  "meta": {},
+  "data": {
+    "token": "your-session-token"
+  }
+}
+```
+
+If you don't have login credentials (your email and password), ask your server administrator to create them for you.
+
+### Using your token
+
+Include the token as a Bearer token in the `Authorization` header on all subsequent requests:
+
+```sh
+curl -X POST https://api.takaro.io/gameserver/search \
+  -H "Authorization: Bearer your-session-token" \
+  -H "Content-Type: application/json" \
+  -H "x-takaro-domain: your-domain-id" \
+  -d '{}'
+```
+
+The token is valid for the duration of your session. If you receive a `401 Unauthorized` response, log in again to get a fresh token.
+
+:::info Future: API Keys
+We are working on API key support for long-lived programmatic access. If this is something you need, we'd love to hear from you — reach out on [Discord](https://aka.takaro.io/discord) or [check our roadmap](https://roadmap.takaro.io).
+:::
+
+## Domain Context
+
+Takaro is a multi-tenant platform. Each **domain** is an isolated environment with its own game servers, players, modules, and settings. When you make API calls, you need to tell the API which domain you're operating in.
+
+### Setting domain context
+
+There are two ways to specify your domain:
+
+**HTTP header (recommended for API integrations):**
+
+Add the `x-takaro-domain` header to your requests, as shown in [Using your token](#using-your-token) above.
+
+**Cookie (used by the web dashboard):**
+
+The Takaro dashboard uses a `takaro-domain` cookie to track your selected domain. The dashboard sets this cookie automatically when you switch domains in the UI via the `POST /selected-domain/:domainId` endpoint. You typically don't need to manage this cookie manually.
+
+If you don't specify a domain, the API defaults to your first active domain.
+
+### Finding your domain ID
+
+After logging in, call `GET /me` to see your available domains:
+
+```sh
+curl https://api.takaro.io/me \
+  -H "Authorization: Bearer your-session-token"
+```
+
+The response includes your domains:
+
+```json
+{
+  "meta": {},
+  "data": {
+    "user": { "..." : "..." },
+    "domains": [
+      { "id": "your-domain-id", "name": "My Game Community" }
+    ],
+    "domain": "your-domain-id"
+  }
+}
+```
+
+Use the `id` value as your `x-takaro-domain` header.
+
+### Complete example
+
+Putting it all together — log in, find your domain, and list your game servers:
+
+```sh
+# 1. Log in
+TOKEN=$(curl -s -X POST https://api.takaro.io/login \
+  -H "Content-Type: application/json" \
+  -d '{"username": "your-email@example.com", "password": "your-password"}' | jq -r '.data.token')
+
+# 2. Get your domain ID
+DOMAIN=$(curl -s https://api.takaro.io/me \
+  -H "Authorization: Bearer $TOKEN" | jq -r '.data.domain')
+
+# 3. List game servers
+curl -X POST https://api.takaro.io/gameserver/search \
+  -H "Authorization: Bearer $TOKEN" \
+  -H "Content-Type: application/json" \
+  -H "x-takaro-domain: $DOMAIN" \
+  -d '{}'
+```
 
 ## Querying Data
 
@@ -113,7 +218,7 @@ If there is an error in the API response, it might look like this:
   "meta": {
     "error": {
       "code": "ValidationError",
-      "details": {// ...}
+      "details": {}
     }
   },
   "data": null
@@ -124,18 +229,13 @@ In this example, the meta.error property will contain a description of the error
 
 ## SDKs and Libraries
 
-> ⚠️ **Coming soon**
-> The package already exists but is not yet published on npm.
-
-To interact with the Takaro API programmatically, you can use the `@takaro/apiclient` library. This is included in the Takaro monorepo and can simplify making API requests and handling responses.
-
-To use the `@takaro/apiclient` library, you need to install it via npm:
+To interact with the Takaro API programmatically, you can use the `@takaro/apiclient` library. Install it via npm:
 
 ```sh
 npm install @takaro/apiclient
 ```
 
-Then, you can import it into your project and use it to make API requests:
+Then use it in your project:
 
 ```javascript
 import { Client } from '@takaro/apiclient';
@@ -143,25 +243,20 @@ import { Client } from '@takaro/apiclient';
 const client = new Client({
   url: 'https://api.takaro.io',
   auth: {
-    username: 'username',
-    password: 'password,
-  }
+    username: 'your-email@example.com',
+    password: 'your-password',
+  },
 });
+
+// Log in and get your token
+await client.login();
+
+// Set your domain context
+client.setDomain('your-domain-id');
+
+// Make authenticated requests
+const servers = await client.gameserver.gameServerControllerSearch();
 ```
 
-## Technical Reference
+For full API coverage, see the [interactive API documentation](https://api.takaro.io/api.html).
 
-Takaro uses [Ory Kratos](https://www.ory.sh/kratos/) for identity management.
-
-Takaro is a multi-tenant application. Each tenant (domain) has its own isolated set of data. Some API routes are domain-scoped while others (think of domain management routes) use admin authentication.
-
-### Admin authentication
-
-Since admin authentication is used mostly for automation, it uses a shared secret set as environment variable.
-The `lib-apiclient` library automatically handles this. (See [lib-apiclient](https://github.com/gettakaro/takaro/blob/main/packages/lib-apiclient/README.md))
-
-You can create a domain with the following command:
-
-```sh
-curl -X POST localhost:13000/domain -H "Content-Type: application/json" -H "X-Takaro-Admin-Token: xxx" --data '{"name": "test-domain"}' | jq
-```
