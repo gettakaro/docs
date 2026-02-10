@@ -31,7 +31,7 @@ Permissions in CSMM are typically configured to require a role level lower than 
 Takaro, however, approaches roles differently:
 
 - In Takaro, roles do not have a 'level'. Instead, they are composed of 'permissions'.
-- These permissions determine what actions can be performed within the Takaro API. You can refer to the [Takaro API Documentation](https://docs.takaro.io/api-docs/enums/_takaro_apiclient.PERMISSIONS.html) for details on built-in permissions.
+- These permissions determine what actions can be performed within the Takaro API. You can refer to the [API documentation](/advanced/api) for details on built-in permissions.
 - Modules in Takaro can also define their own permissions. These permissions are automatically integrated into the roles.
 - An example of this can be seen on the role editing page in Takaro, where module-specific permissions are listed.
 
@@ -46,6 +46,12 @@ We agree, CSMM was much easier to get started with. However, CSMM was also very 
 The idea is that 99% of users will never need to write a custom module. The built-in modules should be sufficient for most use cases. If you do need to write a custom module, you will need to have some programming experience.
 
 We know there is stuff to be added to the built-in modules, and we are working on that. If you have any suggestions, please let us know on Discord!
+
+## Do I need to open firewall ports for Takaro?
+
+It depends on your game. For 7 Days to Die and Rust, Takaro connects to your server, so the relevant port must be accessible from the internet. For Minecraft, Hytale, and other games using the generic connector, your server connects outbound to Takaro — no port forwarding or inbound firewall rules are needed.
+
+See [How Takaro Connects to Your Game Server](./advanced/connection-architecture.md) for details.
 
 ## How do I enable Discord role synchronization?
 

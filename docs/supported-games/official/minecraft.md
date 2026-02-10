@@ -1,6 +1,6 @@
 # Minecraft
 
-Takaro supports Minecraft servers through our generic connector and the Takaro Minecraft mod. This integration enables real-time player event streaming, server log forwarding, player management capabilities, and remote server control.
+Takaro supports Minecraft servers through our generic connector and the Takaro Minecraft mod. This integration enables real-time player event streaming, server log forwarding, player management capabilities, and remote server control. Minecraft uses the generic connector, which means your server connects outbound to Takaro — no port forwarding is needed. For details on how the connection works, see [Connection Architecture](/advanced/connection-architecture).
 
 ## Installation
 

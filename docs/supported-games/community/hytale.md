@@ -38,4 +38,4 @@ After updating the configuration, restart your Hytale server for the changes to 
 
 ## How Takaro Connects to Your Hytale Server
 
-The Hytale-Takaro Integration mod establishes a connection to Takaro using the generic connector protocol. Once connected, the mod streams real-time events from your Hytale server to Takaro, receives and executes commands, and provides player and server information on demand.
+The Hytale-Takaro Integration mod establishes a connection to Takaro using the generic connector protocol. Once connected, the mod streams real-time events from your Hytale server to Takaro, receives and executes commands, and provides player and server information on demand. For more details about how the generic connector works, see [Connection Architecture](/advanced/connection-architecture).

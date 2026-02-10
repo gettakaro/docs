@@ -1,29 +1,19 @@
-FROM node:24.11.0-alpine AS builder
+# Stage 1: Build Docusaurus docs
+FROM node:24.11.0-alpine AS docs-builder
 
 WORKDIR /app
 
-# Copy package files first for better caching
 COPY package*.json ./
-
-# Install dependencies
 RUN npm ci
-
-# Copy source files
 COPY . .
-
-# Build the documentation
 RUN npm run build
 
-# Production stage
+# Stage 2: Production
 FROM nginx:stable-alpine
 
-# Copy built files from builder stage
-COPY --from=builder /app/dist /usr/share/nginx/html
-
-# Copy nginx configuration
+COPY --from=docs-builder /app/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
 
-# Build arguments for versioning
 ARG TAKARO_VERSION=unset
 ARG TAKARO_COMMIT=unset
 ARG TAKARO_BUILD_DATE=unset
