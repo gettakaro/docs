@@ -50,7 +50,7 @@ else
 fi
 
 echo "Generating TypeDoc ..."
-npx typedoc --skipErrorChecking --treatValidationErrorsAsWarnings || true
+npx typedoc --skipErrorChecking || true
 
 if [[ -d reports/api-docs ]]; then
   echo "Copying API docs to ${DOCS_ROOT}/static/api-docs/ ..."
