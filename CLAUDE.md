@@ -36,7 +36,9 @@ src/
 └── css/custom.css        # Site styling
 
 static/img/               # Images referenced in docs
+static/api-docs/          # Generated TypeDoc API reference (gitignored)
 assets/                   # Diagrams (Excalidraw files)
+scripts/                  # Build scripts (TypeDoc generation)
 ```
 
 ## Development Commands
@@ -48,6 +50,7 @@ npm run build        # Production build to dist/
 npm run serve        # Serve production build locally
 npm run clear        # Clear Docusaurus cache
 npm run typecheck    # TypeScript validation
+GH_TOKEN=<token> ./scripts/generate-typedoc.sh  # Generate API Reference (requires main repo access)
 ```
 
 ## Git Workflow
@@ -130,7 +133,7 @@ Priority areas needing documentation:
 1. **Minecraft Setup** - `docs/supported-games/minecraft.md` (placeholder exists)
 2. **Troubleshooting Guide** - Common issues and solutions
 3. **Webhook/Event System** - Event notifications, webhook setup
-4. **Complete API Reference** - Full endpoint documentation
+4. **Complete API Reference** - TypeDoc reference auto-generated from main repo; needs richer hand-written API guides
 5. **CSMM Migration Guide** - Detailed migration from CSMM
 
 ## Testing Changes
@@ -145,7 +148,7 @@ npm run build        # Verify build succeeds
 ## Docker
 
 ```bash
-docker-compose up    # Run at http://localhost:8080
+docker compose up    # Run at http://localhost:8080
 ```
 
 Build args available: `TAKARO_VERSION`, `TAKARO_COMMIT`, `TAKARO_BUILD_DATE`
