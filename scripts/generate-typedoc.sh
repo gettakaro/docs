@@ -25,6 +25,9 @@ npm ci
 
 mkdir -p reports
 
+echo "Building packages (some may fail — TypeDoc needs at least the core packages built) ..."
+npm run build || echo "Warning: partial build failure (expected — not all packages build in isolation)"
+
 echo "Generating TypeDoc ..."
 npx typedoc --skipErrorChecking
 
