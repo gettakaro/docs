@@ -56,6 +56,11 @@ const config: Config = {
       },
       items: [
         {
+          href: 'https://docs.takaro.io/api-docs/',
+          label: 'API Reference',
+          position: 'right',
+        },
+        {
           href: 'https://aka.takaro.io/github',
           label: 'GitHub',
           position: 'right',
