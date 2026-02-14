@@ -25,9 +25,6 @@ npm ci
 
 mkdir -p reports
 
-echo "Building packages (required for TypeDoc to resolve types) ..."
-npm run build
-
 echo "Generating TypeDoc ..."
 npm run typedoc
 
