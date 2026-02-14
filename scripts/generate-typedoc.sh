@@ -29,10 +29,14 @@ echo "Building packages (some may fail — TypeDoc needs at least the core packa
 npm run build || echo "Warning: partial build failure (expected — not all packages build in isolation)"
 
 echo "Generating TypeDoc ..."
-npx typedoc --skipErrorChecking
+npx typedoc --skipErrorChecking --treatValidationErrorsAsWarnings || true
 
-echo "Copying API docs to ${DOCS_ROOT}/static/api-docs/ ..."
-rm -rf "${DOCS_ROOT}/static/api-docs"
-cp -r reports/api-docs "${DOCS_ROOT}/static/api-docs"
-
-echo "Done — TypeDoc output is at static/api-docs/"
+if [[ -d reports/api-docs ]]; then
+  echo "Copying API docs to ${DOCS_ROOT}/static/api-docs/ ..."
+  rm -rf "${DOCS_ROOT}/static/api-docs"
+  cp -r reports/api-docs "${DOCS_ROOT}/static/api-docs"
+  echo "Done — TypeDoc output is at static/api-docs/"
+else
+  echo "Error: TypeDoc did not produce output at reports/api-docs"
+  exit 1
+fi
