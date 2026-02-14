@@ -26,7 +26,7 @@ npm ci
 mkdir -p reports
 
 echo "Generating TypeDoc ..."
-npm run typedoc
+npx typedoc --skipErrorChecking
 
 echo "Copying API docs to ${DOCS_ROOT}/static/api-docs/ ..."
 rm -rf "${DOCS_ROOT}/static/api-docs"
