@@ -29,6 +29,8 @@ jobs:
         with:
           app-id: ${{ secrets.TAKARO_CI_APP_ID }}
           private-key: ${{ secrets.TAKARO_CI_APP_PRIV_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: takaro
 
       - name: Setup Node.js for TypeDoc
         uses: actions/setup-node@v4
