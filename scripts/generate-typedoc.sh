@@ -52,6 +52,7 @@ fi
 # Remove test files — they import dev-only packages (@takaro/test, @takaro/mock-gameserver)
 # that are not in the production ECR containers
 find packages -type d \( -name __tests__ -o -name __test__ \) -exec rm -rf {} + 2>/dev/null || true
+find packages -name '*.test.ts' -delete 2>/dev/null || true
 
 echo "Generating TypeDoc ..."
 npx typedoc --skipErrorChecking || true
