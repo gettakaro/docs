@@ -13,7 +13,8 @@ trap cleanup EXIT
 if [[ -n "${GH_TOKEN:-}" ]]; then
   # GH_TOKEN must expand at git-invocation time, not config time
   # shellcheck disable=SC2016
-  git config --global credential.helper '!f() { echo "username=x-access-token"; echo "password=${GH_TOKEN}"; }; f'
+  git config --global credential.helper \
+    '!f() { echo "username=x-access-token"; echo "password=${GH_TOKEN}"; }; f'
 fi
 
 echo "Cloning gettakaro/takaro@${REF} ..."
@@ -25,8 +26,28 @@ npm ci
 
 mkdir -p reports
 
-echo "Building packages (some may fail — TypeDoc needs at least the core packages built) ..."
-npm run build || echo "Warning: partial build failure (expected — not all packages build in isolation)"
+# Extract prebuilt dist/ directories from ECR containers
+if [[ -n "${ECR_REGISTRY:-}" ]]; then
+  echo "Extracting prebuilt packages from ECR containers ..."
+
+  for IMAGE in takaro-app-api takaro-app-connector; do
+    CID=$(docker create "${ECR_REGISTRY}/${IMAGE}:latest")
+    # Extract all package dist dirs from the container
+    docker cp "${CID}:/app/packages/" "$WORK_DIR/extracted-${IMAGE}/" 2>/dev/null || true
+    docker rm "$CID" > /dev/null
+
+    # Overlay dist/ directories onto the source tree
+    for pkg_dir in "$WORK_DIR/extracted-${IMAGE}"/*/; do
+      pkg_name=$(basename "$pkg_dir")
+      if [[ -d "${pkg_dir}dist" && -d "packages/${pkg_name}" ]]; then
+        cp -r "${pkg_dir}dist" "packages/${pkg_name}/"
+        echo "  Extracted dist/ for ${pkg_name}"
+      fi
+    done
+  done
+else
+  echo "Warning: ECR_REGISTRY not set — running TypeDoc without prebuilt packages"
+fi
 
 echo "Generating TypeDoc ..."
 npx typedoc --skipErrorChecking --treatValidationErrorsAsWarnings || true

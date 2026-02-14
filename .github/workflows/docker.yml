@@ -37,9 +37,20 @@ jobs:
         with:
           node-version: '24.11.0'
 
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ECR_CI_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_ECR_CI_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-3
+
+      - name: Login to ECR
+        run: aws ecr get-login-password | docker login --username AWS --password-stdin ${{ secrets.AWS_ECR_REGISTRY }}
+
       - name: Generate TypeDoc from main Takaro repo
         env:
           GH_TOKEN: ${{ steps.generate_token.outputs.token }}
+          ECR_REGISTRY: ${{ secrets.AWS_ECR_REGISTRY }}
         run: ./scripts/generate-typedoc.sh main
 
       - name: Docker meta
