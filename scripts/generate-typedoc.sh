@@ -49,6 +49,10 @@ else
   echo "Warning: ECR_REGISTRY not set — running TypeDoc without prebuilt packages"
 fi
 
+# Remove test files — they import dev-only packages (@takaro/test, @takaro/mock-gameserver)
+# that are not in the production ECR containers
+find packages -type d \( -name __tests__ -o -name __test__ \) -exec rm -rf {} + 2>/dev/null || true
+
 echo "Generating TypeDoc ..."
 npx typedoc --skipErrorChecking || true
 
