@@ -6,15 +6,15 @@ sidebar_position: 5
 
 Takaro uses two different methods to communicate with game servers. Some games require Takaro to connect directly to your server, while others flip the connection so your server connects outbound to Takaro. Which model your game uses determines whether you need port forwarding and firewall rules.
 
-## Traditional Connectors (7 Days to Die, Rust)
+## Traditional Connectors (7 Days to Die)
 
-With traditional connectors, Takaro initiates the connection to your game server over the internet. Takaro sends HTTP requests (7 Days to Die) or opens a WebSocket connection (Rust) to a specific port on your server.
+With traditional connectors, Takaro initiates the connection to your game server over the internet. Takaro sends HTTP requests to a specific port on your server.
 
 ```
 ┌──────────┐              ┌──────────────────┐
 │  Takaro  │ ──────────── │ Your Game Server │
-│  (Cloud) │   HTTP /     │  (7D2D / Rust)   │
-│          │   RCON       │                  │
+│  (Cloud) │   HTTP       │  (7D2D)          │
+│          │              │                  │
 └──────────┘              └──────────────────┘
                            Inbound port must
                            be accessible
@@ -23,8 +23,6 @@ With traditional connectors, Takaro initiates the connection to your game server
 Because Takaro is the one reaching out to your server, your server must be reachable from the internet on the configured port. If your server is behind a router or NAT, you need to set up port forwarding for that port.
 
 **7 Days to Die** requires inbound access to the Web API port (default 8080, configurable in `serverconfig.xml`). See the [7 Days to Die setup guide](/supported-games/official/7d2d) for details.
-
-**Rust** requires inbound access to the RCON WebSocket port (commonly 28016, configurable as a startup parameter). See the [Rust setup guide](/supported-games/official/Rust) for details.
 
 :::caution
 Your game server must be reachable from the internet on the configured port. If you are behind a NAT or firewall, you need to set up port forwarding and allow inbound connections on that port. Consult your hosting provider's documentation if you are using a managed game server host.
@@ -52,14 +50,16 @@ Authentication uses two tokens configured in the mod/plugin: an **identity token
 
 :::tip
 The generic connector is used by all newer game integrations. If your game server can access the internet (which it needs for Steam authentication, mod downloads, etc.), it can connect to Takaro with no additional network configuration.
+
+Rust now also uses this model through the Carbon-based Takaro Rust Connector.
 :::
 
 ## Frequently Asked Questions
 
 ### Do I need to open any inbound firewall ports?
 
-- **For 7 Days to Die and Rust:** Yes. Takaro connects to your server, so the relevant port must be accessible from the internet.
-- **For Minecraft, Hytale, and other generic connector games:** No. Your server connects outbound to Takaro. You only need standard outbound internet access.
+- **For 7 Days to Die:** Yes. Takaro connects to your server, so the relevant port must be accessible from the internet.
+- **For Rust, Minecraft, Hytale, and other generic connector games:** No. Your server connects outbound to Takaro. You only need standard outbound internet access.
 
 ### What if my game server is behind a strict firewall that blocks outbound connections?
 
@@ -71,7 +71,7 @@ For the generic connector, the mod/plugin automatically attempts to reconnect. F
 
 ### Which connector does my game use?
 
-7 Days to Die and Rust use [traditional connectors](#traditional-connectors-7-days-to-die-rust). Minecraft, Hytale, and newer integrations use the [generic connector](#generic-connector-minecraft-hytale-and-more).
+7 Days to Die uses [traditional connectors](#traditional-connectors-7-days-to-die). Rust, Minecraft, Hytale, and newer integrations use the [generic connector](#generic-connector-minecraft-hytale-and-more).
 
 ## Further Reading
 

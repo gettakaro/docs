@@ -1,36 +1,19 @@
 # Rust
 
-Takaro connects to your server using the RCON protocol over websocket
+Takaro supports Rust through the Takaro Rust Connector, a Carbon plugin that implements the Takaro Generic Connector Protocol.
 
-## Setting Up RCON Credentials
+The connector runs inside your Rust server and connects outbound to Takaro over WebSocket, so no inbound RCON port forwarding is required.
 
-Before Takaro can connect to your Rust server, you will need to configure RCON (Remote Console) credentials. These credentials allow Takaro to authenticate and interact with your Rust server through the RCON protocol.
+## Installation
 
-- Locate your server configuration file (server.cfg).
-- Ensure that the RCON protocol is enabled by setting rcon.web to 1.
-- Set the rcon.password to a strong password that will be used by Takaro to authenticate. The rcon password is a startup parameter. Generally, your server host will provide a field where you can easily edit this.
-- Set the rcon.port to define on which port the RCON should listen.
+1. Install Carbon on your Rust server.
+2. Install the latest Takaro Rust Connector from the [gettakaro/rust-mods releases](https://github.com/gettakaro/rust-mods/releases/tag/v1.0.0).
+3. Configure your Takaro registration token and identity token in the plugin settings.
+4. Start or reload the plugin.
 
-```sh
-rcon.web 1
-rcon.port 28016
-```
+## Notes
 
-Note: The RCON password is sensitive, and you should treat it as a password. It is advised to use a combination of
-numbers, letters, lowercase, uppercase, as well as symbols.
+- The connector uses the same outbound model as other generic connector games.
+- If you were previously using Oxide/RCON-based setup notes, they no longer apply.
 
-## Installing additional mods
-
-Takaro requires some functionality that is not available in vanilla Rust. To install these mods, you will need to install the Oxide mod loader.
-
-You can find the mods [on Github](https://github.com/gettakaro/rust-mods).
-
-## Troubleshooting
-
-### OxideRcon
-
-If you are having trouble connecting to your Rust server, you may need to disable the OxideRcon plugin. This plugin is known to cause issues with RCON connections.
-
-## How Takaro Connects to Your Rust Server
-
-Takaro connects to the Rust server using the RCON protocol using web protocols, which allows it to listen for events happening on the server and send commands and receive responses from the server. For a high-level overview of how Takaro connects to game servers, see [Connection Architecture](/advanced/connection-architecture).
+For a high-level overview of how Takaro connects to game servers, see [Connection Architecture](/advanced/connection-architecture).
