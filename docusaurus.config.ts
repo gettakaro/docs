@@ -13,6 +13,11 @@ const config: Config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
 
+  customFields: {
+    posthogPublicApiKey: process.env.POSTHOG_PUBLIC_API_KEY ?? '',
+    posthogApiUrl: process.env.POSTHOG_API_URL ?? 'https://eu.i.posthog.com',
+  },
+
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
