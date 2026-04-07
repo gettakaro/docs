@@ -338,6 +338,39 @@ async function main() {
 await main();
 ```
 
+## Creating Shop Actions
+
+Custom modules can expose **shop actions** that appear in the shop listing form after the module is installed on a game server.
+
+Use shop actions when you want a purchase to trigger logic instead of, or in addition to, delivering items. Typical examples include:
+
+- granting a Takaro role
+- sending a thank-you message
+- executing a server command
+- triggering custom automation in your own module code
+
+A shop action belongs to a module version and becomes available to the shop on game servers where that module version is installed.
+
+### Shop action triggers
+
+Each shop action has a runtime trigger:
+
+- `orderCreated` - execute immediately after purchase
+- `orderClaimed` - execute when the player claims the order
+- `both` - execute on both purchase and claim
+
+Use `orderCreated` for instant effects. Use `orderClaimed` when the action depends on the player being online or when it should happen together with item delivery.
+
+### Shop action context
+
+Inside a shop action, you typically work with the same helper imports as other module components. The most useful runtime values are:
+
+- `data.player` - the buyer, when available
+- `data.gameServerId` - the game server where the order was placed
+- `data.module` - the installed module configuration for that server
+
+This means you can reuse your normal Takaro helper patterns inside shop actions.
+
 ## Advanced Patterns and Best Practices
 
 ### 1. Parallelizing API Calls

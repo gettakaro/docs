@@ -28,6 +28,42 @@ To allow players to use the shop, they need to be linked to both Takaro and your
 
 - **Create Shop Listing**: Allows you to list items for sale, either individually or as packages. You can set the item quality and upload custom images for your listings.
 - **Orders**: Provides an overview of the orders placed by players and their status.
+- **Shop Actions**: A listing can also trigger a shop action, allowing you to sell perks, grants, messages, commands, or other module-driven effects alongside regular items.
+
+### Shop Actions
+
+Shop actions let a shop listing do more than just deliver items. A listing can contain:
+
+- regular shop items
+- a shop action
+- both items and a shop action
+
+Action-only listings are supported, so you can create listings that only run an action.
+
+#### Built-in shop actions
+
+Takaro ships with a built-in `shopActions` module. After installing it on a game server, you can use these actions in that server's shop listings:
+
+- `grantRole`
+- `sendMessage`
+- `giveItem`
+- `executeCommand`
+
+#### Custom shop actions
+
+You can also expose your own shop actions from a custom module. Once that module is installed on a game server, its shop actions become available in that server's shop listing form.
+
+#### Triggers
+
+Each shop action can be configured to run on one of these triggers:
+
+- `orderCreated` - run the action as soon as the order is created and payment is deducted
+- `orderClaimed` - run the action when the player claims the order
+- `both` - run on both moments
+
+The default trigger is `orderClaimed`.
+
+Use `orderCreated` for effects that should happen immediately after purchase. Use `orderClaimed` for effects that depend on the player being online or ready to receive something in-game.
 
 ### Claiming an Item
 
@@ -35,6 +71,8 @@ An item can be claimed in two ways:
 
 - In Takaro, by going to "Orders" and clicking "Claim Item". You need to be in-game for this to work; otherwise, you'll receive an error message.
 - In-game, by typing the command `/link`.
+
+If a listing contains items, or a shop action that runs on `orderClaimed`, the player must be online when claiming the order.
 
 ### In-Game Store
 
