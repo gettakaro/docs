@@ -31,7 +31,9 @@ const config: Config = {
           // Remove this to remove the "edit this page" links.
           // editUrl: 'https://github.com/gettakaro/takaro',
         },
-        blog: false,
+        blog: {
+          showReadingTime: true,
+        },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -67,6 +69,11 @@ const config: Config = {
         src: 'img/takaro.png',
       },
       items: [
+        {
+          href: '/blog',
+          label: 'Blog',
+          position: 'right',
+        },
         {
           href: 'https://docs.takaro.io/api-docs/',
           label: 'API Reference',
