@@ -94,18 +94,44 @@ You can also use the `version` command in your server console to confirm the mod
 
 Permissions are configured in the `serveradmin.xml` file located in your savegames folder. You can define which API endpoints are accessible and at what permission level.
 
+7 Days to Die permission levels work from most powerful to least powerful: `0` is full admin access, while higher numbers are more restricted. A web user or web token must have a permission level that is powerful enough for the module it is trying to use.
+
+Add or verify the `<webmodules>` section in `serveradmin.xml`. This example keeps dangerous console execution limited to full admins, allows read-only status/player APIs to normal web users, and restricts sensitive map/claim/inventory data to trusted admins:
+
+```xml
+<webmodules>
+  <module name="web.map" permission_level="2000" />
+  <module name="webapi.executeconsolecommand" permission_level="0" />
+  <module name="webapi.getstats" permission_level="2000" />
+  <module name="webapi.getplayersonline" permission_level="2000" />
+  <module name="webapi.getplayerslocation" permission_level="2000" />
+  <module name="webapi.viewallplayers" permission_level="2000" />
+  <module name="webapi.getlandclaims" permission_level="3" />
+  <module name="webapi.viewallclaims" permission_level="3" />
+  <module name="webapi.getplayerinventory" permission_level="3" />
+  <module name="webapi.gethostilelocation" permission_level="2000" />
+  <module name="webapi.getanimalslocation" permission_level="2000" />
+</webmodules>
+```
+
 Key permission modules include:
 
-| Module | Description |
-|--------|-------------|
-| `web.map` | Interactive map viewing |
-| `webapi.getlandclaims` | View land claim locations |
-| `webapi.gethostilelocation` | View zombie locations |
-| `webapi.getanimalslocation` | View animal locations |
-| `webapi.getplayerslocation` | View player positions |
+| Module | Description | Suggested permission level |
+|--------|-------------|----------------------------|
+| `web.map` | Interactive map viewing | `2000` |
+| `webapi.executeconsolecommand` | Execute server console commands | `0` |
+| `webapi.getstats` | Read server statistics | `2000` |
+| `webapi.getplayersonline` | Read online player list | `2000` |
+| `webapi.getplayerslocation` | View player positions | `2000` on PVE servers; restrict further on PVP servers |
+| `webapi.viewallplayers` | View all known players | `2000` |
+| `webapi.getlandclaims` | View land claim locations | `3` or another trusted-admin level |
+| `webapi.viewallclaims` | View all land claims | `3` or another trusted-admin level |
+| `webapi.getplayerinventory` | View player inventories | `3` or another trusted-admin level |
+| `webapi.gethostilelocation` | View zombie locations | `2000` |
+| `webapi.getanimalslocation` | View animal locations | `2000` |
 
-Permission levels range from `0` (full admin access) to higher numbers for more restricted access.
+After changing `serveradmin.xml`, restart the server or reload the admin configuration before testing the web API again.
 
 :::tip PVP Server Considerations
-For PVP servers, carefully restrict access to location-based permissions like `webapi.getlandclaims` and `webapi.getplayerslocation`. Exposing this information can significantly impact gameplay balance.
+For PVP servers, carefully restrict access to location-based permissions like `webapi.getlandclaims`, `webapi.viewallclaims`, `webapi.getplayerinventory`, and `webapi.getplayerslocation`. Exposing this information can significantly impact gameplay balance.
 :::
