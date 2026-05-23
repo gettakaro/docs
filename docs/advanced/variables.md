@@ -95,3 +95,20 @@ Deleting a variable is done with the `variableControllerDelete`.
 ```js
 await takaro.variable.variableControllerDelete(variableId);
 ```
+
+If a module created multiple variables, search for the variables first and delete each record by ID. For module cleanup, include the `moduleId` and `gameServerId` filters so you only delete data for the module on the intended game server.
+
+```js
+const variables = await takaro.variable.variableControllerSearch({
+  filters: {
+    gameServerId: [gameServerId],
+    moduleId: [mod.moduleId],
+  },
+});
+
+for (const variable of variables.data.data) {
+  await takaro.variable.variableControllerDelete(variable.id);
+}
+```
+
+Uninstalling a module from a game server does not delete variables created by that module. Delete variables separately when you want to remove saved module data.

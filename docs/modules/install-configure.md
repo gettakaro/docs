@@ -61,9 +61,11 @@ Tagged module versions are immutable. The `latest` version is useful while devel
 
 ## Remove a module
 
-Uninstalling a module stops its commands, hooks, and cronjobs from running on that game server. It doesn't automatically clean up all data that the module may have stored.
+Uninstalling a module removes the module installation and configuration for that game server. The module's commands, hooks, and cronjobs stop running on that server.
 
-Before removing a module that stores variables, check whether you need to export, migrate, or manually delete that data.
+Uninstalling a module does not delete variables created by that module. Variables are scoped to the module and game server, but they remain after the module installation is removed.
+
+Before uninstalling a module that stores variables, check whether you need to export, migrate, or manually delete that data. See [Deleting variables](/advanced/variables#deleting-a-variable) for the API pattern.
 
 ## Troubleshooting
 

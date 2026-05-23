@@ -28,6 +28,8 @@ Useful fields often include errors, arguments, player data, game server IDs, mod
 
 If the issue involves saved module data, also check the variables created by the module. For example, the teleport module stores player teleport locations as variables linked to the player, game server, and module.
 
+If you need to remove saved module data, delete the relevant variables. See [Deleting variables](/advanced/variables#deleting-a-variable) for the API pattern.
+
 ## Share event JSON when asking for help
 
 If you ask us for help with a module issue, include the event JSON. It gives us the exact data Takaro saw when the module ran and helps us debug the problem faster.
