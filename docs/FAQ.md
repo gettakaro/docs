@@ -63,7 +63,7 @@ To sync Discord and Takaro roles:
 4. Enable sync in **Settings → Game Servers**
 5. Choose who controls roles (Takaro or Discord)
 
-See the [Discord Integration guide](./advanced/discord-integration.md) for details.
+See the [Discord Integration guide](./discord-integration.md) for details.
 
 ## What happens when Discord and Takaro roles conflict?
 

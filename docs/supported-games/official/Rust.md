@@ -1,4 +1,10 @@
-# Rust
+import GameHero from '@site/src/components/GameHero';
+
+<GameHero
+  title="Rust"
+  description="Run Rust servers through Takaro's outbound Carbon connector with player events, server control, and no inbound RCON port forwarding."
+  image="/img/games/rust.jpg"
+/>
 
 Takaro supports Rust through the Takaro Rust Connector, a Carbon plugin that implements the Takaro Generic Connector Protocol.
 

@@ -1,4 +1,10 @@
-# Hytale
+import GameHero from '@site/src/components/GameHero';
+
+<GameHero
+  title="Hytale"
+  description="Connect Hytale servers to Takaro through the generic connector and Hytale-Takaro Integration mod."
+  image="/img/games/hytale.jpg"
+/>
 
 Takaro connects to your Hytale server using the generic connector and the Hytale-Takaro Integration mod. This integration enables real-time player event streaming, player management capabilities, and remote server control.
 
