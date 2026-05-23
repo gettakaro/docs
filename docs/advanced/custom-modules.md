@@ -4,6 +4,12 @@
 
 Welcome to the Takaro module development guide! Whether you're looking to create simple commands or complex automated systems, this guide will walk you through everything you need to know. We'll start with the basics and gradually move to more advanced topics.
 
+:::note
+
+To create or edit modules in the dashboard, enable developer mode first. Open **Settings** and turn on the developer toggle to show the module builder.
+
+:::
+
 ## What are Modules?
 
 At their core, Takaro modules are collections of features that add functionality to your game server. A module might be as simple as a single command that welcomes players, or as complex as a complete economy system with multiple commands, scheduled tasks, and persistent data storage.

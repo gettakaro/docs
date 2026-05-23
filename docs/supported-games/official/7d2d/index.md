@@ -1,4 +1,10 @@
-# 7 Days To Die
+import GameHero from '@site/src/components/GameHero';
+
+<GameHero
+  title="7 Days to Die"
+  description="Connect 7 Days to Die servers to Takaro through the web API, with setup guidance for Allocs fixes, credentials, and troubleshooting."
+  image="/img/games/7d2d-hero.jpg"
+/>
 
 ## Install Allocs Fixes
 

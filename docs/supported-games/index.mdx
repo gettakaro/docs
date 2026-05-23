@@ -1,0 +1,75 @@
+---
+sidebar_position: 0
+title: Supported Games
+description: Takaro supports official and community-maintained game server integrations for Rust, 7 Days to Die, Minecraft, DayZ, Hytale, Palworld, Eco, and Astroneer.
+---
+
+import GameCard, { GameCardGrid } from '@site/src/components/GameCard';
+
+# Supported Games
+
+Takaro connects to official and community-supported game servers from one dashboard. Official integrations are maintained by the Takaro team. Community integrations are built and maintained by community contributors.
+
+## Official support
+
+Official integrations receive Takaro team maintenance and regular compatibility updates.
+
+<GameCardGrid>
+  <GameCard
+    title="7 Days to Die"
+    description="Survival horror game with crafting and building mechanics"
+    image="/img/games/7d2d-hero.jpg"
+    link="/supported-games/official/7d2d"
+  />
+  <GameCard
+    title="Rust"
+    description="Multiplayer survival game with base building and PvP"
+    image="/img/games/rust.jpg"
+    link="/supported-games/official/Rust"
+  />
+  <GameCard
+    title="Minecraft"
+    description="Sandbox game with endless building possibilities"
+    image="/img/games/minecraft.png"
+    link="/supported-games/official/minecraft"
+  />
+</GameCardGrid>
+
+## Community support
+
+Community integrations use Takaro's generic connector and are maintained by community contributors.
+
+<GameCardGrid>
+  <GameCard
+    title="Astroneer"
+    description="Space exploration and survival sandbox"
+    image="/img/games/astroneer.webp"
+    link="/supported-games/community/astroneer"
+  />
+  <GameCard
+    title="DayZ"
+    description="Open-world post-apocalyptic survival game"
+    image="/img/games/dayz.jpg"
+    link="/supported-games/community/dayz"
+  />
+  <GameCard
+    title="Eco"
+    description="Collaborative ecosystem simulation game"
+    image="/img/games/eco.jpg"
+    link="/supported-games/community/eco"
+  />
+  <GameCard
+    title="Hytale"
+    description="Block-based adventure game from the creators of Hypixel"
+    image="/img/games/hytale.jpg"
+    link="/supported-games/community/hytale"
+  />
+  <GameCard
+    title="Palworld"
+    description="Creature collection and survival game"
+    image="/img/games/palworld.avif"
+    link="/supported-games/community/palworld"
+  />
+</GameCardGrid>
+
+To connect another game, see [Adding support for a new game](/advanced/adding-support-for-a-new-game).

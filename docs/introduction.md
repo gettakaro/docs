@@ -46,7 +46,7 @@ Takaro seamlessly integrates with Discord, linking communication between your ga
 - **Event Notifications**: Get real-time updates about game events in Discord
 - **Bot Commands**: Control your game servers directly from Discord
 
-Learn more about [Discord Integration →](./advanced/discord-integration.md)
+Learn more about [Discord Integration →](./discord-integration.md)
 
 ## Economy and Shop
 

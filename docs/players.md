@@ -89,4 +89,4 @@ When admins enable role sync:
 - Only mapped roles sync
 - System roles never sync
 
-See the [Discord Integration guide](./advanced/discord-integration.md) for more.
+See the [Discord Integration guide](./discord-integration.md) for more.

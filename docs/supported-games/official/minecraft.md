@@ -1,4 +1,10 @@
-# Minecraft
+import GameHero from '@site/src/components/GameHero';
+
+<GameHero
+  title="Minecraft"
+  description="Connect Spigot Minecraft servers to Takaro with real-time player events, logs, player management, and remote server control."
+  image="/img/games/minecraft.png"
+/>
 
 Takaro supports Minecraft servers through our generic connector and the Takaro Minecraft mod. This integration enables real-time player event streaming, server log forwarding, player management capabilities, and remote server control. Minecraft uses the generic connector, which means your server connects outbound to Takaro — no port forwarding is needed. For details on how the connection works, see [Connection Architecture](/advanced/connection-architecture).
 
