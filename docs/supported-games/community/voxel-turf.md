@@ -2,7 +2,7 @@ import GameHero from '@site/src/components/GameHero';
 
 <GameHero
   title="Voxel Turf"
-  description="Connect Voxel Turf servers to Takaro with Matt's community-maintained Voxel Turf Server Manager plugin."
+  description="Connect Voxel Turf servers to Takaro with Mad's community-maintained Voxel Turf Server Manager plugin."
   image="/img/games/voxel-turf.svg"
 />
 
