@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Voxel Turf</title>
+  <desc id="desc">A stylized voxel city block used for the Voxel Turf supported game card.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#20244a"/>
+      <stop offset="100%" stop-color="#0f1326"/>
+    </linearGradient>
+    <linearGradient id="road" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#27293d"/>
+      <stop offset="100%" stop-color="#111522"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#sky)"/>
+  <circle cx="965" cy="130" r="58" fill="#f7d774" opacity="0.95"/>
+  <g opacity="0.38" fill="#111522">
+    <rect x="82" y="190" width="110" height="260"/>
+    <rect x="220" y="135" width="150" height="315"/>
+    <rect x="405" y="220" width="125" height="230"/>
+    <rect x="690" y="155" width="135" height="295"/>
+    <rect x="855" y="205" width="105" height="245"/>
+    <rect x="1000" y="170" width="135" height="280"/>
+  </g>
+  <polygon points="0,520 1200,420 1200,675 0,675" fill="#243f2f"/>
+  <polygon points="310,675 625,455 915,675" fill="url(#road)"/>
+  <g fill="#f7d774" opacity="0.85">
+    <rect x="598" y="505" width="26" height="46" transform="rotate(35 611 528)"/>
+    <rect x="642" y="550" width="26" height="46" transform="rotate(35 655 573)"/>
+    <rect x="686" y="596" width="26" height="46" transform="rotate(35 699 619)"/>
+  </g>
+  <g transform="translate(165 315)">
+    <polygon points="0,115 210,35 420,115 210,200" fill="#4b8f4b"/>
+    <polygon points="0,115 210,200 210,310 0,220" fill="#2d6a3d"/>
+    <polygon points="420,115 210,200 210,310 420,220" fill="#245437"/>
+    <polygon points="105,70 210,30 315,70 210,112" fill="#8b5a32"/>
+    <polygon points="105,70 210,112 210,198 105,155" fill="#704522"/>
+    <polygon points="315,70 210,112 210,198 315,155" fill="#5f371c"/>
+    <rect x="185" y="118" width="50" height="58" fill="#f1c36a" opacity="0.9"/>
+  </g>
+  <g transform="translate(610 280)">
+    <polygon points="0,120 170,55 340,120 170,188" fill="#6375aa"/>
+    <polygon points="0,120 170,188 170,345 0,270" fill="#40547f"/>
+    <polygon points="340,120 170,188 170,345 340,270" fill="#2d3c62"/>
+    <g fill="#d7e7ff" opacity="0.8">
+      <rect x="60" y="150" width="34" height="34"/>
+      <rect x="112" y="174" width="34" height="34"/>
+      <rect x="220" y="158" width="34" height="34"/>
+      <rect x="272" y="135" width="34" height="34"/>
+    </g>
+  </g>
+  <text x="70" y="102" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="62" font-weight="800">Voxel Turf</text>
+  <text x="74" y="152" fill="#cfd6ff" font-family="Inter, Arial, sans-serif" font-size="28">Community connector</text>
+</svg>
