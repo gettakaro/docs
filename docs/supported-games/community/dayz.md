@@ -8,6 +8,12 @@ import GameHero from '@site/src/components/GameHero';
 
 Takaro connects to your DayZ server using the generic connector, the **@TakaroIntegration** server-side mod, and a small **DayZ-Bridge** Node.js sidecar that translates between the mod's HTTP and Takaro's WebSocket gameserver protocol. The integration enables real-time player events, player management, and remote server control.
 
+For a product overview, see the [DayZ server manager page](https://takaro.io/games/dayz/).
+
+:::note Version and module availability
+Bridge, docs, and modules can be released separately. Use the upstream guide for setup, the GitHub releases page for bridge packages, and the Takaro module viewer for module availability.
+:::
+
 ## Installation
 
 DayZ integration has two pieces: a server-side mod and a Node.js bridge sidecar. The mod is loaded via `-serverMod=`, so clients never download it.

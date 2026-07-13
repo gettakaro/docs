@@ -10,6 +10,10 @@ Takaro connects to your Astroneer dedicated server through the community-maintai
 
 For a product overview, see the [Astroneer server manager page](https://takaro.io/games/astroneer/).
 
+:::note Version and module availability
+Bridge, docs, and modules can be released separately. Use the upstream guide for setup, the GitHub releases page for bridge packages, and the Takaro module viewer for module availability.
+:::
+
 ## Prerequisites
 
 - An Astroneer dedicated server with file access

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Voxel Turf</title>
+  <desc id="desc">Blocky city shapes on a dark purple background.</desc>
+  <rect width="1200" height="675" fill="#080808"/>
+  <circle cx="930" cy="150" r="170" fill="#664DE5" opacity="0.22"/>
+  <g fill="#151515" stroke="#333">
+    <rect x="100" y="300" width="130" height="260"/>
+    <rect x="270" y="220" width="160" height="340"/>
+    <rect x="470" y="140" width="190" height="420"/>
+    <rect x="700" y="260" width="150" height="300"/>
+    <rect x="890" y="190" width="180" height="370"/>
+  </g>
+  <g fill="#664DE5"><rect x="135" y="340" width="28" height="28"/><rect x="325" y="270" width="28" height="28"/><rect x="540" y="190" width="28" height="28"/><rect x="760" y="320" width="28" height="28"/><rect x="970" y="250" width="28" height="28"/></g>
+</svg>

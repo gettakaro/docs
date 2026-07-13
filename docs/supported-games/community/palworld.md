@@ -10,6 +10,10 @@ Takaro connects to your Palworld dedicated server through the community-maintain
 
 For a product overview, see the [Palworld server manager page](https://takaro.io/games/palworld/).
 
+:::note Version and module availability
+Bridge, docs, and modules can be released separately. Use the upstream guide for setup, the GitHub releases page for bridge packages, and the Takaro module viewer for module availability.
+:::
+
 ## Prerequisites
 
 - A Palworld dedicated server with admin access
