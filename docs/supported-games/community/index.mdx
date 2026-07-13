@@ -7,24 +7,24 @@ import GameCard, { GameCardGrid } from '@site/src/components/GameCard';
 
 # Community Games
 
-Games supported through community-maintained integrations. These connectors are developed and maintained by community members.
+Games supported through community-maintained integrations. These connectors are developed and maintained by community members and usually connect to Takaro through the Generic game server type.
 
 <GameCardGrid>
   <GameCard
     title="Astroneer"
-    description="Space exploration and survival sandbox"
+    description="Native RCON bridge for player events, player list, reachability, and admin commands."
     image="/img/games/astroneer.webp"
     link="/supported-games/community/astroneer"
   />
   <GameCard
     title="DayZ"
-    description="Open-world post-apocalyptic survival game"
+    description="BattlEye RCON-backed moderation, item sync, player events, and server-side mod integration."
     image="/img/games/dayz.jpg"
     link="/supported-games/community/dayz"
   />
   <GameCard
     title="Eco"
-    description="Collaborative ecosystem simulation game"
+    description="Eco server mod for WebSocket integration, player events, chat, and admin commands."
     image="/img/games/eco.jpg"
     link="/supported-games/community/eco"
   />
@@ -36,8 +36,20 @@ Games supported through community-maintained integrations. These connectors are 
   />
   <GameCard
     title="Palworld"
-    description="Creature collection and survival game"
+    description="Player tracking, admin actions, teleports, and Discord/chat relay through the community Palworld Bridge."
     image="/img/games/palworld.avif"
     link="/supported-games/community/palworld"
+  />
+  <GameCard
+    title="Soulmask"
+    description="RCON and log-based bridge for player tracking, chat, moderation, and server commands."
+    image="/img/games/soulmask.jpg"
+    link="/supported-games/community/soulmask"
+  />
+  <GameCard
+    title="Voxel Turf"
+    description="Join/leave/chat/death events, item catalog sync, admin actions, and server lifecycle logs."
+    image="/img/games/voxel-turf.jpg"
+    link="/supported-games/community/voxel-turf"
   />
 </GameCardGrid>

@@ -87,3 +87,7 @@ The bridge should connect to Takaro and to Astroneer RCON. Keep the bridge runni
 Check the bridge window or `takaro-bridge.log`. Takaro should show the Astroneer server online after the WebSocket and RCON connections succeed.
 
 For the upstream guide, see the [Takaro Astroneer Bridge documentation](https://mad-001.github.io/takaro-astroneer-bridge/).
+
+## Version sync note
+
+The upstream Astroneer repository has had version drift between `package.json`, the public docs page, and GitHub Releases. When troubleshooting, check the downloaded bridge files and the latest repository state instead of relying on one version string alone.
