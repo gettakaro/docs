@@ -10,6 +10,10 @@ Takaro connects to your Eco server through the community-maintained Takaro Integ
 
 For a product overview, see the [Eco server manager page](https://takaro.io/games/eco/).
 
+:::note Version and module availability
+Bridge, docs, and modules can be released separately. Use the upstream guide for setup, the GitHub releases page for bridge packages, and the Takaro module viewer for module availability.
+:::
+
 ## Prerequisites
 
 - An Eco server with file access
