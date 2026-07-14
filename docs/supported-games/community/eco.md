@@ -57,3 +57,7 @@ Restart the Eco server after saving `TakaroConfig.json`. The plugin connects to 
 Open the Takaro dashboard and check that the Eco server appears online. If it does not, check the Eco server logs and confirm that `registrationToken` is correct.
 
 For the upstream guide, see the [Takaro Eco Integration documentation](https://mad-001.github.io/takaro-eco-integration/).
+
+## Version sync note
+
+The current upstream release checked for this page is `v1.2.1`. Some upstream README/changelog text may still mention older versions, so prefer the release package and `VERSION` file when validating installs.

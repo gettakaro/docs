@@ -101,3 +101,7 @@ Restart the Palworld server after installing UE4SS and TakaroChat.
 Check the bridge logs after startup. The bridge should connect to Takaro and to the Palworld REST API. If Takaro does not show the server online, verify the registration token, REST API port, and admin password.
 
 For the upstream guide, see the [Palworld Bridge documentation](https://mad-001.github.io/Palworld-Bridge/).
+
+## Module sync note
+
+The Palworld repository also ships optional Takaro module exports under `TakaroModules/`. If Discord death notifications or player commands behave differently than described, compare the installed module export with the bridge version because the public docs and bundled modules can drift.

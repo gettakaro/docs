@@ -88,3 +88,7 @@ Start the bridge first, then start the DayZ server. The bridge will register wit
 ## How Takaro Connects to Your DayZ Server
 
 DayZ's Enforce Script `RestApi` is HTTP-only, but Takaro's gameserver protocol is WebSocket-only. The DayZ-Bridge sidecar bridges the two: it connects to `wss://connect.takaro.io/`, listens on `127.0.0.1:8088` for the mod, forwards in-game events as Takaro `gameEvent` messages, and translates inbound Takaro requests (kicks, bans, teleports, item grants, broadcasts) into HTTP poll responses the mod consumes. For more details about how the generic connector works, see [Connection Architecture](/advanced/connection-architecture).
+
+## Release sync note
+
+The current upstream release checked for this page is `v0.1.14`, which added ammo and magazine item-list fixes. If item sync behaves differently, compare the installed release against the upstream release notes.
