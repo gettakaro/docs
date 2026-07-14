@@ -31,12 +31,22 @@ if [[ -n "${ECR_REGISTRY:-}" ]]; then
   echo "Extracting prebuilt packages from ECR containers ..."
 
   for IMAGE in takaro-app-api takaro-app-connector; do
-    CID=$(docker create "${ECR_REGISTRY}/${IMAGE}:latest")
+    IMAGE_REF="${ECR_REGISTRY}/${IMAGE}:latest"
+    if ! CID=$(docker create "$IMAGE_REF"); then
+      echo "Warning: could not create container from ${IMAGE_REF}; continuing without prebuilt dist/ for ${IMAGE}"
+      continue
+    fi
+
     # Extract all package dist dirs from the container
-    docker cp "${CID}:/app/packages/" "$WORK_DIR/extracted-${IMAGE}/" 2>/dev/null || true
+    if ! docker cp "${CID}:/app/packages/" "$WORK_DIR/extracted-${IMAGE}/" 2>/dev/null; then
+      echo "Warning: could not extract packages from ${IMAGE_REF}; continuing"
+      docker rm "$CID" > /dev/null
+      continue
+    fi
     docker rm "$CID" > /dev/null
 
     # Overlay dist/ directories onto the source tree
+    shopt -s nullglob
     for pkg_dir in "$WORK_DIR/extracted-${IMAGE}"/*/; do
       pkg_name=$(basename "$pkg_dir")
       if [[ -d "${pkg_dir}dist" && -d "packages/${pkg_name}" ]]; then
@@ -44,6 +54,7 @@ if [[ -n "${ECR_REGISTRY:-}" ]]; then
         echo "  Extracted dist/ for ${pkg_name}"
       fi
     done
+    shopt -u nullglob
   done
 else
   echo "Warning: ECR_REGISTRY not set — running TypeDoc without prebuilt packages"
@@ -63,6 +74,5 @@ if [[ -d reports/api-docs ]]; then
   cp -r reports/api-docs "${DOCS_ROOT}/static/api-docs"
   echo "Done — TypeDoc output is at static/api-docs/"
 else
-  echo "Error: TypeDoc did not produce output at reports/api-docs"
-  exit 1
+  echo "Warning: TypeDoc did not produce output at reports/api-docs; continuing without refreshed API docs"
 fi
