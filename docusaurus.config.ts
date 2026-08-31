@@ -97,7 +97,9 @@ const config: Config = {
       ],
     },
     footer: {
-      style: 'dark',
+      // 'light' follows the active theme; 'dark' hardcodes near-white link
+      // text, which is invisible on the light footer surface.
+      style: 'light',
       logo: {
         alt: 'Takaro',
         // Letterforms flip per theme; the portal-As stay brand purple in both.

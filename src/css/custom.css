@@ -64,6 +64,8 @@ html[data-theme='light'] {
   --ifm-link-hover-color: #4a33c9;
   --ifm-menu-color-active: var(--takaro-accent);
 
+  --ifm-footer-link-color: #3a3646;
+  --ifm-footer-title-color: #14121c;
   --takaro-border-themed: #e6e3ee;
   --takaro-muted-themed: #5c5768;
   --takaro-surface-themed: #f7f6fa;
@@ -92,6 +94,8 @@ html[data-theme='dark'] {
   --ifm-link-hover-color: var(--takaro-link-hover);
   --ifm-menu-color-active: var(--takaro-link);
 
+  --ifm-footer-link-color: var(--takaro-text-base);
+  --ifm-footer-title-color: var(--takaro-text);
   --takaro-border-themed: var(--takaro-border);
   --takaro-muted-themed: var(--takaro-text-muted);
   --takaro-surface-themed: var(--takaro-bg-card);
@@ -128,6 +132,7 @@ blockquote {
 
 .footer {
   --ifm-footer-background-color: var(--takaro-surface-themed);
+  --ifm-footer-link-hover-color: var(--ifm-link-color);
   border-top: 1px solid var(--takaro-border-themed);
 }
 
