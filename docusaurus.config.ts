@@ -44,6 +44,16 @@ const config: Config = {
   scripts: [{ src: 'https://plausible.io/js/script.js', defer: true, 'data-domain': 'takaro.io' }],
 
   headTags: [
+    // Inter for headings, matching the marketing site (gettakaro/website).
+    { tagName: 'link', attributes: { rel: 'preconnect', href: 'https://fonts.googleapis.com' } },
+    { tagName: 'link', attributes: { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' } },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Inter:wght@700;900&display=swap',
+      },
+    },
     {
       tagName: 'script',
       attributes: {},
@@ -58,15 +68,15 @@ const config: Config = {
   themeConfig: {
     colorMode: {
       defaultMode: 'dark',
-      disableSwitch: true,
-      respectPrefersColorScheme: false,
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
     },
 
     navbar: {
-      title: 'Takaro Documentation',
+      title: 'Documentation',
       logo: {
-        alt: 'Takaro Logo',
-        src: 'img/takaro.png',
+        alt: 'Takaro',
+        src: 'img/takaro-portal-a.svg',
       },
       items: [
         {
@@ -87,7 +97,16 @@ const config: Config = {
       ],
     },
     footer: {
-      style: 'dark',
+      // 'light' follows the active theme; 'dark' hardcodes near-white link
+      // text, which is invisible on the light footer surface.
+      style: 'light',
+      logo: {
+        alt: 'Takaro',
+        // Letterforms flip per theme; the portal-As stay brand purple in both.
+        src: 'img/takaro-wordmark-light.svg',
+        srcDark: 'img/takaro-wordmark.svg',
+        href: 'https://takaro.io',
+      },
       links: [
         {
           title: 'Community',
