@@ -6,6 +6,8 @@ sidebar_position: 4
 
 For a hands-on experience and quick start with the Takaro API, visit the [interactive API documentation](https://api.takaro.io/api.html). You can explore endpoints, make test requests, and view responses in real-time.
 
+If you would rather have an AI assistant call these operations for you, see [Connect your AI assistant](./connect-your-ai-assistant.md).
+
 ## Authentication
 
 To use the API programmatically, authenticate by calling the login endpoint with your credentials. This returns a session token you can use for subsequent requests.
